@@ -14,6 +14,7 @@
 		C69CF2032832658400BCC48F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C69CF2022832658400BCC48F /* Assets.xcassets */; };
 		C69CF2062832658400BCC48F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69CF2042832658400BCC48F /* LaunchScreen.storyboard */; };
 		C69CF20E2832664000BCC48F /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CF20D2832664000BCC48F /* MyCell.swift */; };
+		C69CF2102832705100BCC48F /* GridCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CF20F2832705100BCC48F /* GridCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C69CF2052832658400BCC48F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C69CF2072832658400BCC48F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C69CF20D2832664000BCC48F /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		C69CF20F2832705100BCC48F /* GridCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				C69CF1F92832658200BCC48F /* AppDelegate.swift */,
 				C69CF1FB2832658200BCC48F /* SceneDelegate.swift */,
 				C69CF1FD2832658200BCC48F /* ViewController.swift */,
+				C69CF20F2832705100BCC48F /* GridCollectionViewFlowLayout.swift */,
 				C69CF20D2832664000BCC48F /* MyCell.swift */,
 				C69CF1FF2832658200BCC48F /* Main.storyboard */,
 				C69CF2022832658400BCC48F /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			files = (
 				C69CF1FE2832658200BCC48F /* ViewController.swift in Sources */,
 				C69CF20E2832664000BCC48F /* MyCell.swift in Sources */,
+				C69CF2102832705100BCC48F /* GridCollectionViewFlowLayout.swift in Sources */,
 				C69CF1FA2832658200BCC48F /* AppDelegate.swift in Sources */,
 				C69CF1FC2832658200BCC48F /* SceneDelegate.swift in Sources */,
 			);

@@ -8,19 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-  private let flowLayout: UICollectionViewFlowLayout = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-//    layout.minimumLineSpacing = 8.0
-    layout.minimumInteritemSpacing = 8.0
-    layout.itemSize = CGSize(width: 100, height: 100)
+  private let gridFlowLayout: GridCollectionViewFlowLayout = {
+    let layout = GridCollectionViewFlowLayout()
+    layout.cellSpacing = 8
+    layout.numberOfColumns = 2
     return layout
   }()
   
   private var dataSource = getSampleImages()
   
   private lazy var collectionView: UICollectionView = {
-    let view = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
+    let view = UICollectionView(frame: .zero, collectionViewLayout: self.gridFlowLayout)
     view.isScrollEnabled = true
     view.showsHorizontalScrollIndicator = false
     view.showsVerticalScrollIndicator = true
@@ -42,10 +40,11 @@ class ViewController: UIViewController {
       self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
       self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
       self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 120),
-      self.collectionView.heightAnchor.constraint(equalToConstant: 500),
+      self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
     ])
     
     self.collectionView.dataSource = self
+    self.collectionView.delegate = self
   }
 }
 
@@ -57,6 +56,21 @@ extension ViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCell.id, for: indexPath) as! MyCell
     cell.prepare(image: self.dataSource[indexPath.item])
     return cell
+  }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    guard
+      let flowLayout = collectionViewLayout as? GridCollectionViewFlowLayout,
+      flowLayout.numberOfColumns > 0
+    else { fatalError() }
+    
+    let widthOfCells = collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
+    let spaceOfCells = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
+    let width = (widthOfCells - spaceOfCells) / CGFloat(flowLayout.numberOfColumns)
+    
+    return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
   }
 }
 
