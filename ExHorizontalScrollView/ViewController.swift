@@ -67,9 +67,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     else { fatalError() }
     
     let widthOfCells = collectionView.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
-    let spaceOfCells = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
-    let width = (widthOfCells - spaceOfCells) / CGFloat(flowLayout.numberOfColumns)
-    
+    let widthOfSpacing = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
+    let width = (widthOfCells - widthOfSpacing) / CGFloat(flowLayout.numberOfColumns)
+
     return CGSize(width: width, height: width * flowLayout.ratioHeightToWidth)
   }
 }
